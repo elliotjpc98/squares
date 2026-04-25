@@ -3,6 +3,7 @@ let squareArea = document.querySelector("#squarearea");
 let squareCount = parseInt(Math.random()*21)+30; //30-50
 //Make some variable for a really big zIndex
 document.querySelectorAll("button")[0].onclick= addSquare;
+document.querySelectorAll("button")[1].onclick = changeColors;
 for(let i = 0;i<squareCount;i++){
     //make a square
     let square = document.createElement("div");
@@ -43,4 +44,7 @@ function changeColors(){
     let allSquares = document.querySelectorAll(".square");
     //For of loop or just do a regular for loop with index
     //Change the color
+    for(let i = 0;i <allSquares.length; i++){
+        allSquares[i].style.backgroundColor = getRandomColor();
+    }
 }
