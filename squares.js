@@ -2,6 +2,7 @@ let squareArea = document.querySelector("#squarearea");
 // let squareArea = document.getElementById("squarearea");
 let squareCount = parseInt(Math.random()*21)+30; //30-50
 //Make some variable for a really big zIndex
+let bigZIndex = 1;
 document.querySelectorAll("button")[0].onclick= addSquare;
 document.querySelectorAll("button")[1].onclick = changeColors;
 for(let i = 0;i<squareCount;i++){
@@ -16,6 +17,13 @@ function addSquare(){
     square.style.left = parseInt(Math.random()*650)+"px";
     square.style.top = parseInt(Math.random()*250)+"px";
     square.style.backgroundColor = getRandomColor();
+    square.onclick = function(){
+        if(parseInt(this.style.zIndex) === bigZIndex){
+            this.remove();
+            return;
+        }
+        this.style.zIndex = ++bigZIndex;
+    }
     squareArea.append(square);
 }
 
